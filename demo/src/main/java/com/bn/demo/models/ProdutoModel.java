@@ -4,17 +4,17 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "TB_PRODUTO")
+@Entity//Define para o compulador que essa entidade se refere a uma entidade dentro do projeto
+@Table(name = "TB_PRODUTO")//define em qual local aquele dado esta disponibilizado EX: client
 public class ProdutoModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id//define esse atributo como identificador unico da tabela
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//define o tipo de maneira como o elemento tera seu identificador unico gerado
     private Long id;
     private String nome;
-    @Column(name = "preco_do_produto")
+    @Column(name = "preco_do_produto")//define à qual coluna esse atributo se refere
     private BigDecimal preco;
-    @Column(name = "quant_estoque")
+    @Column(name = "quant_estoque")//define à qual coluna esse atributo se refere
     private Integer estoque;
 
 

@@ -8,11 +8,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableWebSecurity
+@Configuration//define ele como classe de configuracao e que dentro delas tera anotacoes bean dentro dela
+@EnableWebSecurity//ativa a seguranca usando essa classe como filtro de seguranca
 public class SecurityFilter {
 
-    @Bean
+    @Bean//define ele como criterio de prioridade em tempo de compilacao e deixando ele estruturado como item de
+    //configuracao
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
         return httpSecurity.csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->

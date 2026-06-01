@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service //Define que essa classe corresponde ao service, sendo gerenciada como um elemento unico(sem outras instancias ao compilar)
 public class ProdutoService implements UserDetailsService {
 
-    @Autowired
+    @Autowired//injeta a dependencia da classe marcada, de forma com que ao iniciar, o compilador ja sabe que ela
+    //depende da outra classe
     private ProdutoRepository produtoRepository;
 
     public List<ProdutoModel> buscarTodosProdutos(){
@@ -41,7 +42,7 @@ public class ProdutoService implements UserDetailsService {
         produtoRepository.deleteById(id);
     }
 
-    @Override
+    @Override//define que essa funcao é uma sobrescrita de uma outra funcao, gerando assim uma re-implementacao de maneira diferente
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return produtoRepository.findByLogin(username);
     }
