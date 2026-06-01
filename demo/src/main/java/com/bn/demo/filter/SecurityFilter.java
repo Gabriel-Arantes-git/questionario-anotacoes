@@ -12,8 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity//ativa a seguranca usando essa classe como filtro de seguranca
 public class SecurityFilter {
 
-    @Bean//define ele como criterio de prioridade em tempo de compilacao e deixando ele estruturado como item de
-    //configuracao
+    @Bean//deixando ele estruturado como item de configuracao sobrescrevendo um metodo de uma biblioteca
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
         return httpSecurity.csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
